@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .brain {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <title>LOOK AT ME</title>
+</head>
+<body>
+    <img class="brain" src="download.jpeg">
+    <script>
+    var i = 0;
+    var j = 0;
+    var b = 0;
+    var plus = 10;
+    function move() {
+        switch(b) {
+            case 0:
+            j += plus;
+            if(j >= screen.width - window.outerWidth) {
+                 j = 0;
+                 i += plus;
+            }
+             if(i >= screen.height - window.outerHeight) {
+                b = 1;
+            }
+            break;
+            case 1:
+                j -= plus;
+            if(j <= 0) {
+                 j = screen.width;
+                 i -= plus;
+            }
+             if(i <= 0) {
+                b = 0;
+            }
+            break;
+        }
+
+        window.moveTo(j, i);
+    }
+    setInterval(move, 10);
+</script>
+</body>
+</html>
